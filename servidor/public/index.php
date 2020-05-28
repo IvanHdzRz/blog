@@ -1,24 +1,15 @@
 <?php
 
-use Psr\Http\Message\ResponseInterface as Response;
-use Psr\Http\Message\ServerRequestInterface as Request;
-use Slim\Factory\AppFactory;
 
+use Slim\Factory\AppFactory;
 require __DIR__.'/../vendor/autoload.php';
 
 $app = AppFactory::create();
 
-$app->get('/', function (Request $request, Response $response, $args) {
+// Se agrega middleware para desplegar errores
+$app->addErrorMiddleware(true,false,true);
 
-    $response->getBody()->write("Hello Word");
-    return $response;
-});
 
-$app->get('/posts', function (Request $request, Response $response, $args) {
-
-    $response->getBody()->write("Hello Posts");
-    return $response;
-});
-
+require '../src/routes/routes.php';
 
 $app->run();
