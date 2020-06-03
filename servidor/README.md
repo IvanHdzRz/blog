@@ -12,7 +12,7 @@ Al abrir el archivo vamos a tener un contenido similar a este :
 
 Lo que haremos acontinuación sera agregar un DNS que apunte al localhost (127.0.0.1). 
 
-![VirtualHost2](servidor\imgReadme\virtualHost2.PNG "VirtualHost2")
+![VirtualHost2](imgReadme/virtualHost2.PNG "VirtualHost2")
 
 Solo queda guardar el archivo y listo.
 
