@@ -50,10 +50,10 @@ Una vez ejecutado el ini.sql, ya estara lista la api para ser usada.
 # Endpoints de la API
 
 ```
-- [GET] /Post 
+- [GET] /posts 
     Descripcion : Obtiene todos los posts.
 
-- [POST] /Post 
+- [POST] /posts 
     Descripcion : Registra un nuevo post.
     Cuerpo : {
         titulo : String,
