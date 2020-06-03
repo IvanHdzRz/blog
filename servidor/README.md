@@ -49,6 +49,7 @@ Una vez ejecutado el ini.sql, ya estara lista la api para ser usada.
 
 # Endpoints de la API
 
+```
 - [GET] /Post 
     Descripcion : Obtiene todos los posts.
 
@@ -60,6 +61,8 @@ Una vez ejecutado el ini.sql, ya estara lista la api para ser usada.
         cuerpo : String,
         img : String
     }
+
+```
 
 
  
