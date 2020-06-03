@@ -47,6 +47,21 @@ Ahora ejecutaremos el ini.sql que se encuetra en la carpeta **sql**.
 
 Una vez ejecutado el ini.sql, ya estara lista la api para ser usada.
 
+# Endpoints de la API
+
+- [GET] /Post 
+    Descripcion : Obtiene todos los posts.
+
+- [POST] /Post 
+    Descripcion : Registra un nuevo post.
+    Cuerpo : {
+        titulo : String,
+        extracto : String, 
+        cuerpo : String,
+        img : String
+    }
+
+
  
 
 
