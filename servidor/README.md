@@ -2,7 +2,7 @@
 
 ### 1. Creación de Virtual Host con XAMPP en Windows
 
-##### 1.1 Para empezar con la creación de un virtual host, comenzaremos modificando el archivo **host**, el cual se encuentra en la siguiente ruta : 
+1.1 Para empezar con la creación de un virtual host, comenzaremos modificando el archivo **host**, el cual se encuentra en la siguiente ruta : 
 
 > C:\Windows\System32\drivers\etc
 
@@ -18,20 +18,24 @@ Solo queda guardar el archivo y listo.
 
 *NOTA: Abrir el archivo con permisos de Administrador*
 
-##### 1.2 Ahora modificaremos el archivo **httpd-vhosts.conf**, el cual se encuentra en la siguiente ruta : 
+---
+
+1.2 Ahora modificaremos el archivo **httpd-vhosts.conf**, el cual se encuentra en la siguiente ruta : 
 
 > C:\xampp\apache\conf\extra
 
 Abrimos el archivo y pegamos la siguiente configuración : 
 
-> <VirtualHost *>
->  DocumentRoot "ruta_del_proyecto\blog\servidor\public"
->  ServerName "DNS que establecimos en el archivo **host**" *(Sin comillas "")*
->  <Directory "ruta_del_proyecto\blog\servidor\public">
->    AllowOverride All
->    Require all granted
->  </Directory>
-> </VirtualHost>
+```
+ <VirtualHost *>
+  DocumentRoot "ruta_del_proyecto\blog\servidor\public"
+  ServerName "DNS que establecimos en el archivo **host**" *(Sin comillas "")*
+  <Directory "ruta_del_proyecto\blog\servidor\public">
+    AllowOverride All
+    Require all granted
+  </Directory>
+ </VirtualHost>
+ ```
 
 Guardamos el archivo y listo.
 
