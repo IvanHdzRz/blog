@@ -1,0 +1,9 @@
+.postContainer{
+    transform: translateY(-2rem);
+    width: 95vw;
+    padding: 1rem;
+    margin: 0 auto;
+    border-top-left-radius: 1rem;
+    border-top-right-radius: 1rem;
+    background-color: whitesmoke;
+}

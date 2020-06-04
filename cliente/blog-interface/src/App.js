@@ -19,13 +19,13 @@ class App extends React.Component{
     tabs.set('index',{title:'home',body: <Home/>})
     tabs.set('agregar',{title:'agregar post',body:<div><h1>Soy agregar</h1></div>})
     return (
-      <div className={Styles.app}>
+      
         <Navigation
           pageShowed={pageShowed}
           tabs={tabs}
           onPageChange={this.changePage}    
         />
-      </div>
+      
     );
   }
 }

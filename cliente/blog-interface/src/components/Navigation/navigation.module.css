@@ -5,11 +5,11 @@
     "navigation"
     "body"
     ;
+    
 }
 .nav{
     grid-area: navigation;
     background-color: transparent;
-    min-width: 100vw;
     display: flex;
     justify-content: flex-end;
     align-items: center;
@@ -23,6 +23,7 @@
     text-transform: uppercase;
     background-color: transparent;
     transition: all .3s;
+    margin-right: 5rem;
 }
 .active{
     color:white;
@@ -33,4 +34,5 @@
     grid-area: body;
     margin-top: none;
     transform: translateY(-2rem);
+    
 }
