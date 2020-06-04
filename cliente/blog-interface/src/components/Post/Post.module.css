@@ -1,3 +1,44 @@
+
+.post{
+    max-width: 500px;
+    box-sizing: border-box;
+    margin: 1rem auto;
+    display:grid;
+    width: 90vw;
+    
+    
+    grid-template-rows: auto 3rem auto;
+    grid-template-areas: 
+    "img"
+    "title"
+    "fragment"
+    ;
+    background-color: white;
+    border-radius: 1rem;
+}
+
+.title{
+    grid-area: title;
+    padding: 1rem;
+    margin:0;
+}
+.fragment{
+    grid-area: fragment;
+    padding: 1rem;
+    margin: 0;
+}
+.post>img{
+    justify-self: stretch;
+    align-self: center;
+    object-fit: cover;
+    width: 100%;
+    grid-area: img;
+    border-top-left-radius: 1rem;
+    border-top-right-radius: 1rem;
+}
+
+/*estilos del los post loading -----------------------------*/
+
 .loading{
     display: flex;
     justify-content: center;

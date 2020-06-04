@@ -15,10 +15,10 @@ const Post=(props)=>{
         )
     }
     return(
-        <div className={Styles.post}>
+        <div className={Styles.post} >
             <img  src={props.img}/>
-            <h3>{props.title}</h3>
-            <p>
+            <h3 className={Styles.title}>{props.title}</h3>
+            <p className={Styles.fragment}>
                 {props.fragment}
             </p>
         </div>
