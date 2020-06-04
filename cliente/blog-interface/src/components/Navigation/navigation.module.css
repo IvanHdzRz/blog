@@ -1,0 +1,36 @@
+.page{
+    display: grid;
+    grid-template-rows: 2rem auto;
+    grid-template-areas: 
+    "navigation"
+    "body"
+    ;
+}
+.nav{
+    grid-area: navigation;
+    background-color: transparent;
+    min-width: 100vw;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+.link{
+    z-index: 10;
+    font-size: 1rem;
+    color:rgba(255,255,255,0.8);
+    border:none;
+    font-weight: 300;
+    text-transform: uppercase;
+    background-color: transparent;
+    transition: all .3s;
+}
+.active{
+    color:white;
+    font-weight: 500;
+    border-bottom: 3px solid white;
+}
+.body{
+    grid-area: body;
+    margin-top: none;
+    transform: translateY(-2rem);
+}

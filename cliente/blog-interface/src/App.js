@@ -1,26 +1,33 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import Styles from './App.module.css'
+import Navigation from './components/Navigation'
+import Home from './components/Home'
+class App extends React.Component{
+  state={
+    pageShowed:'index'
+  }
+  
+  changePage=(page)=>{
+    this.setState({pageShowed:page})
+    
+  }
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+  render(){
+    const {pageShowed}=this.state
+    {/*objeto que guarda el titulo y el cuerpo de cada seccion de la pagina*/}
+    const tabs=new Map();
+    tabs.set('index',{title:'home',body: <Home/>})
+    tabs.set('agregar',{title:'agregar post',body:<div><h1>Soy agregar</h1></div>})
+    return (
+      <div className={Styles.app}>
+        <Navigation
+          pageShowed={pageShowed}
+          tabs={tabs}
+          onPageChange={this.changePage}    
+        />
+      </div>
+    );
+  }
 }
 
 export default App;
