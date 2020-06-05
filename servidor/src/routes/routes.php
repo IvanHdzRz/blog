@@ -11,9 +11,13 @@ $app->get('/', function (Request $request, Response $response ){
     return $response;
 });
 
-
 $app->group('/posts[/{id}]', function (RouteCollectorProxy $group) {
     $group->map(['GET','POST'],'',\PostModel::class . ':getResponse');
+});
+
+$app->map(['GET', 'POST', 'PUT', 'DELETE', 'PATCH'], '/{routes:.+}', function($req, $res) {
+    $handler = $this->notFoundHandler; // handle using the default Slim page not found handler
+    return $handler($req, $res);
 });
 
 
