@@ -1,0 +1,24 @@
+.pagination{
+    width: 95vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.btnPag{
+    height: 3rem;
+    width: 3rem;
+    font-size: 1rem;
+    border:none;
+    color:rgba(0,0,0,.8);
+    padding: 1rem;
+    border-radius: 1.5rem;
+    background-color: beige;
+    box-sizing: border-box;
+    margin: 0 0.5rem;
+    transition: all .3s;
+}
+.active{
+    background-color: rgba(0,0,0,.8);
+    color:beige;
+}

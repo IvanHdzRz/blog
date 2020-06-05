@@ -32,6 +32,7 @@
     align-self: center;
     object-fit: cover;
     width: 100%;
+    max-height: 500px;
     grid-area: img;
     border-top-left-radius: 1rem;
     border-top-right-radius: 1rem;
