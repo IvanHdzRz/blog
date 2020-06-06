@@ -1,0 +1,122 @@
+.addPostSection{
+    background-image: linear-gradient(to left bottom, #3b3c3d, #676869, #979798, #cacaca, #ffffff);
+    min-width: 100vw;
+    min-height: 99vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.addPostSection>form{
+    border-radius: none;
+    border-radius: 1rem;
+    padding: 1rem;
+    width: 90vw;
+    max-width: 750px;
+    max-height: 90vh;
+    background-color: white;
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+   /*  para version grande
+    grid-template-areas: 
+    "title title title title title"
+    "lblTitle lblTitle inputTitle inputTitle inputTitle"
+    "lblExtract lblExtract inputExtract inputExtract inputExtract"
+    "lblBody lblBody inputBody inputBody inputBody"
+    "lblImg lblImg inputImg inputImg inputImg"
+    ". . send . ."
+    ; */
+    grid-template-areas: 
+    "title"
+    "lblTitle"
+    "inputTitle"
+    "lblExtract"
+    "inputExtract"
+    "lblBody"
+    "inputBody"
+    "lblImg"
+    "inputImg"
+    "send"
+    ;
+}
+.addPostSection>form>h2{
+    margin:0;
+    grid-area: title;
+    color:#05213D;
+    justify-self: center;
+}
+.lblTitle{
+    grid-area: lblTitle;
+}
+.inputTitle{
+    grid-area: inputTitle;
+}
+.lblExtract{
+    grid-area: lblExtract;
+}
+.inputExtract{
+    grid-area: inputExtract;
+}
+.lblBody{
+    grid-area: lblBody;
+}
+
+.inputBody{
+    grid-area: inputBody;
+}
+.lblImg{
+    grid-area: lblImg;
+}
+.inputImg{
+    grid-area: inputImg;
+}
+
+.btnSend{
+   width: 15rem;
+   height: 3rem;
+    grid-area: send;
+    justify-self: center;
+    background-image: linear-gradient(to left bottom, #05213d, #0c3962, #13528a, #186db4, #1b8ae0);
+    border:none;
+    color:white;
+    border-radius: 1.5rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 1rem;
+    padding: 0.85rem;
+    box-sizing: border-box;
+}
+
+input{
+    justify-self: stretch;
+    align-self: center;
+    border:none;
+    font-size: 1.5rem;
+    border-bottom: 3px solid #1B8AE0;
+}
+label{
+    justify-self: flex-start;
+    align-self: center;
+}
+@media screen and (min-width: 600px) {
+    .addPostSection>form{
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-areas: 
+        "title title title title title"
+        "lblTitle lblTitle inputTitle inputTitle inputTitle"
+        "lblExtract lblExtract inputExtract inputExtract inputExtract"
+        "lblBody lblBody inputBody inputBody inputBody"
+        "lblImg lblImg inputImg inputImg inputImg"
+        ". . send . ."
+    ;
+    }
+}
+@media screen and (min-width: 800px) {
+    input{
+        width: 20rem;
+        justify-self: flex-start;
+        
+    }
+  }
