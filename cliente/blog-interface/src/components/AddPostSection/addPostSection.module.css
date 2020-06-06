@@ -8,6 +8,7 @@
 }
 
 .addPostSection>form{
+    transform: translateY(2rem);
     border-radius: none;
     border-radius: 1rem;
     padding: 1rem;
