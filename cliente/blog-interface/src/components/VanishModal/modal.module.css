@@ -1,0 +1,57 @@
+:root{
+    --Green:#049C50;
+    --ActiveYellow:#E1F336;
+    --Red:#9C1100; 
+    --DarkNavi: #1D2339;
+}
+.modal{
+    position: absolute;
+    /*width: 18rem;
+    height: 15rem;
+    */
+    top:50%;
+    right: 50%;
+    z-index:10;
+    background-color: #f2f2f2f2;
+    border-radius: 0.5rem;
+    padding: 1rem;
+    font-family: Monserrat, sans-serif;
+    /*display:grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 4rem 1fr 1fr;
+    grid-template-areas:    "titulo titulo titulo titulo"    "label input input input"    "Cancel Cancel Create Create "    ;
+    */animation-name: pop;
+    animation-duration: .5s;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: forwards;
+    
+}
+
+
+@keyframes pop {
+    0% {
+        transform: translate(50%,-50%)  scale(0);
+        -webkit-transform: translate(50%,-50%)  scale(0);
+        -moz-transform: translate(50%,-50%)  scale(0);
+        -ms-transform: translate(50%,-50%)  scale(0);
+        -o-transform: translate(50%,-50%)  scale(0);
+    }
+    
+    75%{
+        transform: translate(50%,-50%)  scale(1.1);
+        -webkit-transform: translate(50%,-50%)  scale(1.1);
+        -moz-transform: translate(50%,-50%)  scale(1.1);
+        -ms-transform: translate(50%,-50%)  scale(1.1);
+        -o-transform: translate(50%,-50%)  scale(1.1);
+}
+    100% {
+        top:50%;
+        right: 50%;
+        transform: translate(50%,-50%)  scale(1);
+        -webkit-transform: translate(50%,-50%)  scale(1);
+        -moz-transform: translate(50%,-50%)  scale(1);
+        -ms-transform: translate(50%,-50%)  scale(1);
+        -o-transform: translate(50%,-50%)  scale(1);
+}
+}
+
