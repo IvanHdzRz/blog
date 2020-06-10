@@ -31,12 +31,26 @@ class PostModel extends Model{
     }
 
     private function getAll(){
-        try {
-            $stm = $this->db->connect()->prepare("SELECT * FROM post");
-            $stm->execute();
-            return json_encode($stm->fetchAll(PDO::FETCH_CLASS));
+
+        $limit = (isset($_GET['limit'])) && $_GET['limit'] >= 0 ? $_GET['limit'] : 10;
+        $offset = (isset($_GET['offset'])) && $_GET['offset'] > 0 ? $_GET['offset'] : 0;
+
+        try {   
+            $countPost = $this->db->connect()->prepare("SELECT COUNT(*) FROM post");
+            $countPost->execute();
+
+            $stm = $this->db->connect()->prepare("SELECT * FROM post ORDER BY created_at DESC LIMIT :limit OFFSET :offset");
+            $stm->execute([
+                'limit' => $limit,
+                'offset' => $offset
+            ]);
+
+            return json_encode(['count' => $countPost->fetchColumn(),'posts' => $stm->fetchAll(PDO::FETCH_CLASS)]);
+
         } catch (PDOException $error) {
+
             return json_encode(['Operacion ' => 'Fallida']);
+
         }
     }
 
