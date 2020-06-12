@@ -7,65 +7,62 @@ class PostContainer extends React.Component{
         postState:'loading',
         postPerPage:6,
         pageShowed:1,
-        posts:[],
-        postShowed:[]
+        postsShowed:[],
+        totalPosts:0
     }
-    componentDidMount(){
-        getApiPost().then(data=>{
-            
-            const prevState=this.state
-            const mostRecent=0+(prevState.postPerPage*(prevState.pageShowed-1));
-            const lessrecent = (mostRecent+6>=data.length)?data.length-1:mostRecent+6;
-            const postInpage=data.slice(mostRecent,lessrecent);
-            console.log(mostRecent,lessrecent)
-            console.log(postInpage)
-            
+    getPost(){
+        const prevState=this.state;
+        let {pageShowed,postPerPage,postsShowed,totalPosts} =prevState
+        const from=postPerPage*(pageShowed-1);
+        console.log(from);
+        getApiPost(from,postPerPage).then(data=>{
+            const {count,posts}=data;
+            totalPosts=count;
+            postsShowed=posts;
+        
             this.setState({
                 ...prevState,
                 postState:'loaded',
-                postShowed:postInpage,
-                posts:data,
-                totalPost:data.length
+                postsShowed,
+                totalPosts,
             })
 
         })
+
         
-        async function getApiPost(){
-            let response = await fetch(`http://blog.dev.localhost/posts`);
+        async function getApiPost(from,numberOfPost){
+            let response = await fetch(`http://blog.dev.localhost/posts?limit=${numberOfPost}&offset=${from}`);
             let data = await response.json()
-            {/*ordena las post del ultimo al primero*/}
-            data.sort((a,b)=>{return b.id-a.id})
             return data;
             
         }
     }
     changePage=(newPageShowed)=>{
-        
-        const prevState=this.state;
-        const mostRecent=0+(prevState.postPerPage*(prevState.pageShowed-1));
-        const lessrecent = (mostRecent+6>=prevState.posts.length)?prevState.posts.length-1:mostRecent+6;
-        const postInpage=prevState.posts.slice(mostRecent,lessrecent);
-        this.setState({...prevState,pageShowed:newPageShowed,postShowed:postInpage})
+        const prevState=this.state
+        this.setState({...prevState, pageShowed:newPageShowed,postState:'loading'})
     }
     
 
     render(){
         const postLoaded=this.state.postState!=='loading';
-        const {posts,postPerPage,pageShowed,postShowed}=this.state;
+        const {posts,postPerPage,pageShowed,postsShowed,totalPosts}=this.state;
         //si ya cargaron los post
         if(postLoaded){
             return(
                 <>
+
                 <div className={Styles.postContainer}>
+                    
                     <h2>Lastest Post</h2> 
-                    {postShowed.map(post=>{
+                    {console.log(this.state)}
+                    {postsShowed.map(post=>{
                         return(
                             <Post img={post.img} title={post.titulo} fragment={post.extracto} key={post.id} id={post.id}/>
                         )
                     })}
                 </div>
                 <Pagination  
-                    totalPost={posts.length} 
+                    totalPost={totalPosts} 
                     postPerPage={postPerPage}
                     pageShowed={pageShowed} 
                     onChangePage={this.changePage}
@@ -77,7 +74,7 @@ class PostContainer extends React.Component{
                 
                 <div className={Styles.postContainer}>
                     {/*empieza a cargar los post*/}
-                    
+                    {this.getPost()}
                     <h2>Lastest Post</h2>
                     <Post  status='loading'/>
                     <Post  status='loading'/>
