@@ -56,16 +56,19 @@ class PostModel extends Model{
 
     private function insert($data){
         try {
-            $stm = $this->db->connect()->prepare("INSERT INTO post (titulo, extracto, cuerpo, img) VALUES (:titulo, :extracto, :cuerpo, :img)");
+            $stm = $this->db->connect()->prepare("INSERT INTO post (titulo, extracto, cuerpo, img, created_at, updated_at) VALUES (:titulo, :extracto, :cuerpo, :img, :created_at, :updated_at)");
             $stm->execute([
                 'titulo' => $data['titulo'],
                 'extracto' => $data['extracto'],
                 'cuerpo' => $data['cuerpo'],
-                'img' => $data['img']
+                'img' => $data['img'],
+                'created_at' => date("Y-m-d H:i:s"),
+                'updated_at' => date("Y-m-d H:i:s")
             ]);
             return json_encode(['Operacion ' => 'Exitosa']);
         } catch (PDOException $error) {
-            return json_encode(['Operacion ' => 'Fallida']);
+            print_r($error);
+            // return json_encode(['Operacion ' => 'Fallida']);
         }
     }
     
