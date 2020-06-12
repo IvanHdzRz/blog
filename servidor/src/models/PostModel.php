@@ -39,7 +39,7 @@ class PostModel extends Model{
             $countPost = $this->db->connect()->prepare("SELECT COUNT(*) FROM post");
             $countPost->execute();
 
-            $stm = $this->db->connect()->prepare("SELECT * FROM post ORDER BY created_at DESC LIMIT :limit OFFSET :offset");
+            $stm = $this->db->connect()->prepare("SELECT * FROM post ORDER BY created_at DESC LIMIT :offset, :limit ");
             $stm->execute([
                 'limit' => $limit,
                 'offset' => $offset
