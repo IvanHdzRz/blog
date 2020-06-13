@@ -1,5 +1,7 @@
 .home{
     background-color: #e2e2e2e2;
+    max-width: 100vw;
+    box-sizing: border-box;
 }
 .hero{
     box-sizing: border-box;
@@ -8,7 +10,7 @@
     
 }
 .heroImg{
-    width: 98.7vw;
+    width: 100vw;
     height:400px ;   
 }
 .hero>img{

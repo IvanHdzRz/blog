@@ -1,4 +1,7 @@
 .page{
+    margin: 0;
+    padding: 0;
+    
     display: grid;
     grid-template-rows: 2rem auto;
     grid-template-areas: 
@@ -23,7 +26,7 @@
     text-transform: uppercase;
     background-color: transparent;
     transition: all .3s;
-    margin-right: 2rem;
+    margin-left: 2rem;
 }
 .active{
     color:white;

@@ -1,5 +1,5 @@
 .pagination{
-    width: 95vw;
+    width: 100vw;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -15,10 +15,13 @@
     border-radius: 1.5rem;
     background-color: beige;
     box-sizing: border-box;
-    margin: 0 0.5rem;
+    margin: 0 2px;
     transition: all .3s;
 }
 .active{
     background-color: rgba(0,0,0,.8);
     color:beige;
+}
+.btnPag:disabled{
+    color:rgba(0,0,0,.3);
 }

@@ -14,7 +14,7 @@ class PostContainer extends React.Component{
         const prevState=this.state;
         let {pageShowed,postPerPage,postsShowed,totalPosts} =prevState
         const from=postPerPage*(pageShowed-1);
-        console.log(from);
+        
         getApiPost(from,postPerPage).then(data=>{
             const {count,posts}=data;
             totalPosts=count;
@@ -54,7 +54,7 @@ class PostContainer extends React.Component{
                 <div className={Styles.postContainer}>
                     
                     <h2>Lastest Post</h2> 
-                    {console.log(this.state)}
+                    
                     {postsShowed.map(post=>{
                         return(
                             <Post img={post.img} title={post.titulo} fragment={post.extracto} key={post.id} id={post.id}/>
