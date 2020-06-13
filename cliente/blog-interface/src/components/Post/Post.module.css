@@ -4,8 +4,8 @@
     box-sizing: border-box;
     margin: 1rem auto;
     display:grid;
-    width: 90vw;
-    
+    width: 80vw;
+    position: relative;
     
     grid-template-rows: auto 3rem auto;
     grid-template-areas: 
@@ -27,7 +27,7 @@
     padding: 1rem;
     margin: 0;
 }
-.post>img{
+.imgPost{
     justify-self: stretch;
     align-self: center;
     object-fit: cover;
@@ -40,62 +40,86 @@
 
 /*estilos del los post loading -----------------------------*/
 
-.loading{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 85vw;
-    margin: 20px 0;
-}
-.loading>img{
-    
-    min-height: 50px;
-    min-width: 50px;
-    max-width: 150px;
-    max-height: 150px;
-    object-fit: cover;
-    animation-name: imgLoading;
+.loadIco{
+    position:absolute ;
+    height: 40px;
+    width: 40px !important;
+    top:30%;
+    left: 50%;
+    transform: translateX(-50%) translateY(50%);
+    z-index: 10;
+    animation-name: loadingImg;
     animation-duration: 2s;
-    animation-timing-function: cubic-bezier();
-    animation-iteration-count: infinite;
-    margin: 10px;
-}
-.textLoading{
-    flex-basis: 0;
-    flex-grow: 4;
-    min-width: 200px;
-    min-height: 100px;
-    max-width: 700px;
-    max-height: 300px;
-    animation-name: textLoading;
-    animation-duration: 3s;
-    animation-fill-mode:both;
+    animation-fill-mode: both;
     animation-iteration-count: infinite;
 }
-@keyframes imgLoading{
-    from{
-        transform: rotate(0deg);
-    }
-    to{
-        transform: rotate(-360deg);
-    }
+.pseudoTitle{
+    grid-area: title;
+    padding: 1rem;
+    margin: 1rem;
+    margin-top:10px;
+    
+    width: 10rem;
+    background-color: white;
+    animation-name: loadingTitle;
+    animation-duration: 1s;
+    animation-fill-mode: both;
+    animation-iteration-count: infinite;
+    box-sizing: border-box;
 }
-@keyframes textLoading{
+.pseudoText{
+    grid-area: fragment;
+    padding: 1rem;
+    margin: 1rem;
+    margin-top:0;
+    height: 1rem;
+    width: 15rem;
+
+    background-color: white;
+    animation-name: loadingText;
+    animation-duration: 2s;
+    animation-fill-mode: both;
+    animation-iteration-count: infinite;
+    box-sizing: border-box;
+}
+
+@keyframes loadingText{
     0%{
-        -webkit-box-shadow: inset -200px -52px 109px -92px rgba(177,179,179,1);
-        -moz-box-shadow: inset -200px -52px 109px -92px rgba(177,179,179,1);
-        box-shadow: inset -200px -52px 109px -92px rgba(177,179,179,1);
+        -webkit-box-shadow: inset 0px 0px 71px -30px rgba(173,171,173,.8);
 
     }
     50%{
-        -webkit-box-shadow: inset 0px -52px 109px -92px rgba(177,179,179,1);
-        -moz-box-shadow: inset 0px -52px 109px -92px rgba(177,179,179,1);
-        box-shadow: inset 0px -52px 109px -92px rgba(177,179,179,1);
+        -webkit-box-shadow: inset 20rem 0px 71px -30px rgba(173,171,173,.8);
 
     }
     100%{
-        -webkit-box-shadow: inset -200px -52px 109px -92px rgba(177,179,179,1);
-        -moz-box-shadow: inset -200px -52px 109px -92px rgba(177,179,179,1);
-        box-shadow: inset -200px -52px 109px -92px rgba(177,179,179,1);
+        -webkit-box-shadow: inset 0 0px 71px -30px rgba(173,171,173,.8);
+
+    }
+}
+
+@keyframes loadingTitle{
+    0%{
+        -webkit-box-shadow: inset 0px 0px 71px -30px rgba(173,171,173,.8);
+
+    }
+    50%{
+        -webkit-box-shadow: inset 10rem 0px 71px -30px rgba(173,171,173,.8);
+
+    }
+    100%{
+        -webkit-box-shadow: inset 0 0px 71px -30px rgba(173,171,173,.8);
+
+    }
+}
+
+@keyframes loadingImg{
+    0%{
+        transform: translateX(-50%) translateY(50%) rotate(0deg);
+
+    }
+    100%{
+        transform: translateX(-50%) translateY(50%) rotate(360deg);
+
     }
 }

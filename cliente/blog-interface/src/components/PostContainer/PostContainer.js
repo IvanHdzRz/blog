@@ -50,16 +50,17 @@ class PostContainer extends React.Component{
         if(postLoaded){
             return(
                 <>
-
+                
                 <div className={Styles.postContainer}>
+                    <h2>Lastest Post</h2>     
                     
-                    <h2>Lastest Post</h2> 
-                    
+                    <div className={Styles.posts}>
                     {postsShowed.map(post=>{
                         return(
                             <Post img={post.img} title={post.titulo} fragment={post.extracto} key={post.id} id={post.id}/>
                         )
                     })}
+                    </div>
                 </div>
                 <Pagination  
                     totalPost={totalPosts} 
